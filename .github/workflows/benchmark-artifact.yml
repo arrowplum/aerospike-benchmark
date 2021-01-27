@@ -7,7 +7,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       CLIENTREPO: ${GITHUB_WORKSPACE}/client
-    strategy:
+    strategy: 
       matrix: 
         ev-lib: ["", libev, libuv, libevent]
         os: [macos-latest, windows-latest, ubuntu-18.04]
