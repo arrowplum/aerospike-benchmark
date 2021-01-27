@@ -4,12 +4,13 @@ on:
     branches: [ main ]
 jobs:
   build-libraries:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     env:
       CLIENTREPO: ${GITHUB_WORKSPACE}/client
     strategy:
       matrix: 
         ev-lib: ["", libev, libuv, libevent]
+        os: [macos-latest, windows-latest, ubuntu-18.04]
     steps:
     - name: Install event libs
       run: sudo apt-get install -y libevent-dev libev-dev libuv1-dev
